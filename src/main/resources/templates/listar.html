@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeLeaf.org">
+<head>
+<meta charset="UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../../css/estilos.css" />
+<script src="https://kit.fontawesome.com/85815134f5.js"
+	crossorigin="anonymous"></script>
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	<div th:if="${usuarios.isEmpty()}">No hay usuarios registrado
+		en BD.</div>
+
+	<table th:if="${!usuarios.isEmpty()}">
+		<thead>
+			<tr>
+				<th>Nombre</th>
+				<th>Apellidos</th>
+				<th>Telefono</th>
+				<th>Documento</th>
+				<th>Email</th>
+				<th>Password</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr th:each="usuario: ${usuarios}">
+				<th th:text="${usuario.nombre}"></th>
+				<th th:text="${usuario.apellidos}"></th>
+				<th th:text="${usuario.telefono}"></th>
+				<th th:text="${usuario.documento}"></th>
+				<th th:text="${usuario.email}"></th>
+				<th th:text="${usuario.password}"></th>
+			</tr>
+		</tbody>
+	</table>
+
+
+</body>
+</html>
